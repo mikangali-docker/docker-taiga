@@ -1,0 +1,7 @@
+{
+    "url": "amqp://taiga:TAIGA_RABBITMQ_PASSWORD@localhost:5672/taiga",
+    "secret": "TAIGA_SECRET_KEY",
+    "webSocketServer": {
+        "port": 8888
+    }
+}
