@@ -15,7 +15,7 @@ main(){
 
 init(){
 
-  echo "`date +'%Y-%m-%d %H:%M:%S'` Init Taiga ..."
+  echo "Init Taiga ..."
 
   CONF_DIR=$TAIGA_HOME_DIR/conf
 
