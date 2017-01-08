@@ -14,7 +14,7 @@ main(){
     init
   fi
 
-  echo "Starting taiga ..."
+  echo "Starting Taiga ..."
   /usr/bin/supervisord -c $TAIGA_HOME_DIR/supervisord.conf
 }
 
