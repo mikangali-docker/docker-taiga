@@ -12,6 +12,8 @@ $ docker run --rm --name taiga -p 80:80 mikamboo/taiga
 
 Taiga is running at [http://locahost](http://locahost)
 
+Admin default credentials : `username = 'admin' password = '123123'`
+
 ## Build this image 
 
 ```

@@ -17,13 +17,13 @@ ADD ./install /home/taiga/
 
 WORKDIR /home/taiga
 
+RUN cat env.sample >> /etc/environment
+RUN echo "TAIGA_HOME_DIR=/home/taiga" >> /etc/environment
+
 RUN chmod +x install.sh
 RUN ./install.sh
 
 RUN chmod +x bootstarp.sh
-ENTRYPOINT ["/home/taiga/bootstarp.sh"]
+CMD ["/home/taiga/bootstarp.sh"]
 
 EXPOSE 80
-
-#EXPOSE 8001 # If no need container nginx
-#CMD ["/usr/bin/circusd /etc/circus/circusd.ini"]

@@ -1,14 +1,17 @@
 #!/bin/bash
 
-TAIGA_HOME_DIR=/home/taiga
+# Get default en vars
+source /etc/environment
 
+# Create taiga logs folder
 sudo -u taiga mkdir -p $TAIGA_HOME_DIR/logs
-sudo /etc/init.d/postgresql start 9.5
-sudo -u postgres createuser taiga && sudo -u postgres createdb taiga -O taiga
 
 ################################
 # BACKEND INSTALL
 ################################
+
+sudo /etc/init.d/postgresql start 9.5
+sudo -u postgres createuser taiga && sudo -u postgres createdb taiga -O taiga
 
 su - taiga <<'EOF'
   source /etc/bash_completion.d/virtualenvwrapper
@@ -27,10 +30,6 @@ su - taiga <<'EOF'
   python manage.py compilemessages
   python manage.py collectstatic --noinput
 EOF
-
-if [ "$TAIGA_IMPORT_SAMPLE_DATA" == "True" ]; then
-  sudo -u taiga python manage.py sample_data
-fi 
 
 ################################
 # FRONTEND INSTALL
@@ -53,6 +52,7 @@ su - taiga <<'EOF'
   cd taiga-events
   npm install
 EOF
+
 
 
 
