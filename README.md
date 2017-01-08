@@ -17,8 +17,8 @@ Admin default credentials : `username = 'admin' password = '123123'`
 ## Build this image 
 
 ```
-$ git clone https://github.com/mikamboo/taiga-docker.git
-$ cd taiga-docker
+$ git clone https://github.com/mikamboo/docker-taiga.git
+$ cd docker-taiga
 $ docker built -t me/taiga .
 $ cp env.sample env # Then edit env file to set your params
 $ docker run --rm --name taiga -p 80:80 --env-file env me/taiga
@@ -30,7 +30,7 @@ To setup and deploy this image on your server you need to set `env` params.
 You can use provided `env.sample` file an pass it docker container start command
 
 ```
-$ docker run -d --name taiga -p 80:80 --env-file env mikamboo/taiga
+$ docker run -d --name taiga -p 80:80 --env-file env mikamboo/docker-taiga
 ```
 
 ## Resources 
