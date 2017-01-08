@@ -1,10 +1,15 @@
 #!/bin/bash
 
+TAIGA_HOME_DIR=/home/taiga
+
 # Get default params
-source /etc/environment
+if [ -z ${TAIGA_HOST+x} ]; then
+  echo "Params not found use default params"
+  source env.sample
+fi
 
 main(){
-  # Firt run init Taiga
+  # First run : init Taiga
   if [ -f "$TAIGA_HOME_DIR/install.sh" ]; then
     init
   fi
@@ -77,7 +82,7 @@ init(){
 # Import sample data 
 ################################
 if [ "$TAIGA_IMPORT_SAMPLE_DATA" == "True" ]; then
-echo "IMPORTING SAMPLE DATA ..."
+echo "Importing Taiga sample data ..."
 sudo /etc/init.d/postgresql start 9.5
 su - taiga <<'EOF'
     cd taiga-back

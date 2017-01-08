@@ -17,9 +17,6 @@ ADD ./install /home/taiga/
 
 WORKDIR /home/taiga
 
-RUN cat env.sample >> /etc/environment
-RUN echo "TAIGA_HOME_DIR=/home/taiga" >> /etc/environment
-
 RUN chmod +x install.sh
 RUN ./install.sh
 

@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Get default en vars
-source /etc/environment
+TAIGA_HOME_DIR=/home/taiga
 
 # Create taiga logs folder
 sudo -u taiga mkdir -p $TAIGA_HOME_DIR/logs
