@@ -20,6 +20,8 @@ WORKDIR /home/taiga
 RUN chmod +x install.sh
 RUN ./install.sh
 
+VOLUME ["/home/taiga", "/var/lib/postgresql", "/etc/postgresql"]
+
 RUN chmod +x bootstarp.sh
 CMD ["/home/taiga/bootstarp.sh"]
 
