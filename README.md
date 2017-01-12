@@ -33,6 +33,24 @@ You can use provided `env.sample` file an pass it docker container start command
 $ docker run -d --name taiga -p 80:80 --env-file env mikamboo/docker-taiga
 ```
 
+Smple start script
+
+```
+#!/bin/sh
+
+ENV_FILE=/root/docker/taiga/env
+docker run -d --name taiga --env-file $ENV_FILE \
+    -v /srv/taiga/taiga:/home/taiga \
+    -v /srv/taiga/data/pgdb:/var/lib/postgresql \
+    -v /srv/taiga/pgconf:/etc/postgresql \
+    -p 8005:80 \
+taiga
+```
+
+## TODO 
+
+* Create a docker-compose stack (taiga, pgsql, ...)
+
 ## Resources 
 
 * [Taiga install doc](http://taigaio.github.io/taiga-doc/dist/setup-production.html)
