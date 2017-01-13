@@ -17,12 +17,10 @@ ADD ./install /home/taiga/
 
 WORKDIR /home/taiga
 
-RUN chmod +x install.sh
-RUN ./install.sh
+RUN chmod +x bootstarp.sh && chmod +x install.sh && ./install.sh
 
 VOLUME ["/home/taiga", "/var/lib/postgresql", "/etc/postgresql"]
 
-RUN chmod +x bootstarp.sh
 CMD ["/home/taiga/bootstarp.sh"]
 
 EXPOSE 80
